@@ -1,20 +1,24 @@
 const Event = require("../model/events");
 class Control {
   async get(req, res) {
+    //получение всего бд
     const event = await Event.find({});
     return res.status(200).json(event);
   }
   async getOne(req, res) {
+    //получение по id
     const { id } = req.params;
     const event = Event.findById(id);
     return res.json(event);
   }
   async getDate(req, res) {
+    //получение по дате
     const { date } = req.params;
     const event = await Event.find({ edate: date });
     return res.json(event);
   }
   async add(req, res) {
+    //создание
     console.log(req.body);
     try {
       const { title_kz, comment_kz, geom, edate, comment_rus, title_rus } = req.body;
@@ -26,6 +30,7 @@ class Control {
         edate: edate,
         geom: geom,
       });
+      await event.save();
       return res.json(event);
     } catch (e) {
       console.log(e);
