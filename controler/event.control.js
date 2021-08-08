@@ -19,7 +19,6 @@ class Control {
   }
   async add(req, res) {
     //создание
-    console.log(req.body);
     try {
       const { title_kz, comment_kz, geom, edate, comment_rus, title_rus } = req.body;
       const event = new Event({

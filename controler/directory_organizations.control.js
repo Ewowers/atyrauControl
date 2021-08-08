@@ -20,7 +20,6 @@ class Control {
   async title_rus(req, res) {
     //получение по title_rus
     const { title } = req.params;
-    console.log(title);
     const model = await Model.findOne({ title_rus: title.split("_").join(" ") });
     return res.json(model);
   }
