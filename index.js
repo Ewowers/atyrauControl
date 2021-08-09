@@ -12,8 +12,10 @@ app.use("/api", api);
 // EXPORT(); //запуск экспорта
 const start = async () => {
   try {
-    const url = "mongodb://localhost:27017/Atyrau"; // ссылка к базе
-    await mongoose.connect(url, {
+    //const url = "mongodb://localhost:27017/Atyrau"; // ссылка к базе
+    const urlProduction =
+      "mongodb+srv://Ewower:Ewower12@cluster0.upmbf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    await mongoose.connect(urlProduction, {
       // подключение к монго
       useNewUrlParser: true,
       useUnifiedTopology: true,
